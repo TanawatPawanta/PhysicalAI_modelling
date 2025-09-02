@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Mockup_single_leg">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="18.891 -0.12537 -20.254"
+        rpy="0 0 0" />
+      <mass
+        value="3.0538" />
+      <inertia
+        ixx="0.013424"
+        ixy="-9.5953E-20"
+        ixz="2.6558E-20"
+        iyy="0.024779"
+        iyz="-1.0916E-19"
+        izz="0.013424" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Model/SingleLeg/Mesh/mockup_body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Model/SingleLeg/Mesh/mockup_body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="HeelLink">
+    <inertial>
+      <origin
+        xyz="-0.0619677535958516 3.5527136788005E-15 -1.94289029309402E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.301606825077316" />
+      <inertia
+        ixx="0.000243458090535534"
+        ixy="3.28479376945218E-18"
+        ixz="-7.68007615314811E-19"
+        iyy="0.000676411825972959"
+        iyz="-1.39345427E-19"
+        izz="0.000582709128938065" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Model/SingleLeg/Mesh/mockup_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Model/SingleLeg/Mesh/mockup_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="HeelJoint"
+    type="revolute">
+    <origin
+      xyz="18.773 20.254 -0.12537"
+      rpy="0 0 -0.1064" />
+    <parent
+      link="base_link" />
+    <child
+      link="HeelLink" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="HipLink">
+    <inertial>
+      <origin
+        xyz="-0.0163079071961647 0.0741080143062312 -1.06581410364015E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.382897249240284" />
+      <inertia
+        ixx="0.00117906479710534"
+        ixy="0.000284084835728015"
+        ixz="7.31836466427715E-18"
+        iyy="0.000554675269889953"
+        iyz="-5.70561402285648E-18"
+        izz="0.00117232064788202" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Model/SingleLeg/Mesh/Mockup Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Model/SingleLeg/Mesh/Mockup Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="HipJoint"
+    type="revolute">
+    <origin
+      xyz="-0.09 0 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="HeelLink" />
+    <child
+      link="HipLink" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="KneeLink">
+    <inertial>
+      <origin
+        xyz="-0.0342934938820179 -0.0234797596189455 -7.105427357601E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.252925405164945" />
+      <inertia
+        ixx="0.000608070877297243"
+        ixy="-0.000656306112936176"
+        ixz="-2.76471553983804E-18"
+        iyy="0.000972047912340625"
+        iyz="-3.0357661984896E-18"
+        izz="0.00150234212169954" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Model/SingleLeg/Mesh/Mockup Link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Model/SingleLeg/Mesh/Mockup Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="KneeJoint"
+    type="revolute">
+    <origin
+      xyz="-0.054123 0.1399 0"
+      rpy="0 0 0" />
+    <parent
+      link="HipLink" />
+    <child
+      link="KneeLink" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Endffector">
+    <inertial>
+      <origin
+        xyz="0.280371756134242 -0.0126121789773102 0.374577944921016"
+        rpy="0 0 0" />
+      <mass
+        value="8.67837417907314" />
+      <inertia
+        ixx="0.273444962036543"
+        ixy="-0.00393377617806626"
+        ixz="-0.0714651483260975"
+        iyy="0.203265471735909"
+        iyz="-0.00390942180701828"
+        izz="0.273047520545034" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Model/SingleLeg/Mesh/Endffector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Model/SingleLeg/Mesh/Endffector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Endffector"
+    type="fixed">
+    <origin
+      xyz="-0.20176 -0.16589 0"
+      rpy="-1.5708 0 -0.78679" />
+    <parent
+      link="KneeLink" />
+    <child
+      link="Endffector" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

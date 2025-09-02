@@ -1,0 +1,667 @@
+<robot name="Hexapod_mockup.SLDASM">
+  
+  <link name="BaseLink">
+    <inertial>
+      <origin xyz="0 -3.5527136788005E-15 0" rpy="0 0 0" />
+      <mass value="3.05379730217776" />
+      <inertia ixx="0.0134244037728851" ixy="1.32348898009124E-20" ixz="1.05879118406788E-19" iyy="0.0134244037728849" iyz="-8.60267837055149E-20" izz="0.0247789880905595" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.13719 -0.153 -0.035" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/Mockup Body.obj" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/Mockup Body.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="base_x_axis">
+      <visual>
+      <origin xyz="0 0 0.1" rpy="0 0 0" />
+      <geometry>
+         <cylinder radius="0.002" length="0.2"/>
+      </geometry>
+      <material name="">
+        <color rgba="1 0 0 0.7" />
+      </material>
+    </visual>
+  </link>
+  <joint name="base_x_axis_offset" type="fixed">
+    <origin xyz="0 0 0" rpy="0 1.5708 0" />
+    <parent link="BaseLink" />
+    <child link="base_x_axis" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <link name="base_z_axis">
+      <visual>
+      <origin xyz="0 0 0.1" rpy="0 0 0" />
+      <geometry>
+         <cylinder radius="0.002" length="0.2"/>
+      </geometry>
+      <material name="">
+        <color rgba="0 0 1 0.7" />
+      </material>
+    </visual>
+  </link>
+  <joint name="base_z_axis_offset" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="BaseLink" />
+    <child link="base_z_axis" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <link name="front_left_HeelLink">
+    <inertial>
+      <origin xyz="-0.0619677535958516 3.5527136788005E-15 -1.94289029309402E-16" rpy="0 0 0" />
+      <mass value="0.301606825077316" />
+      <inertia ixx="0.000243458090535534" ixy="3.28479376945218E-18" ixz="-7.65547297868403E-19" iyy="0.000676411825972959" iyz="-1.39023672630577E-19" izz="0.000582709128938065" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HeelLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="front_left_HipLink">
+    <inertial>
+      <origin xyz="-0.0163079071961647 0.0741080143062312 -1.06581410364015E-14" rpy="0 0 0" />
+      <mass value="0.382897249240284" />
+      <inertia ixx="0.00117906479710534" ixy="0.000284084835728015" ixz="7.29125960996502E-18" iyy="0.000554675269889953" iyz="-5.72594281359059E-18" izz="0.00117232064788202" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HipLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="front_left_KneeLink">
+    <inertial>
+      <origin xyz="-0.0342934938820143 -0.0234797596189455 -3.5527136788005E-15" rpy="0 0 0" />
+      <mass value="0.252925405164945" />
+      <inertia ixx="0.000608070877297243" ixy="-0.000656306112936175" ixz="-2.71050543121376E-18" iyy="0.000972047912340625" iyz="-2.99510861702139E-18" izz="0.00150234212169954" />
+    </inertial>
+    <visual>
+      <origin xyz="0.035 -0.260  -0.025" rpy="0 0 1.5707963267949" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="front_left_Endeffector">
+    <inertial>
+      <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
+      <mass value="8.67837417907314" />
+      <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+      <material name="">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+    </collision>-->
+  </link>
+  <joint name="front_left_HeelJoint" type="revolute">
+    <origin xyz="0.10219099764656375 0.059 0.0" rpy="3.1416 0 -2.617993877991494" />
+    <parent link="BaseLink" />
+    <child link="front_left_HeelLink" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="front_left_HipJoint" type="revolute">
+    <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
+    <parent link="front_left_HeelLink" />
+    <child link="front_left_HipLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="front_left_KneeJoint" type="revolute">
+    
+    <origin xyz="-0.116 0.09308 0" rpy="0 0 0" />
+    <parent link="front_left_HipLink" />
+    <child link="front_left_KneeLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+
+  <joint name="front_left_Endeffector" type="fixed">
+    <origin xyz="-0.025 -0.26 0" rpy="-1.5707963267949 1.5707963267949 0.0" />
+    <parent link="front_left_KneeLink" />
+    <child link="front_left_Endeffector" />
+    <axis xyz="0 0 0" />
+  </joint>
+<link name="middle_left_HeelLink">
+    <inertial>
+      <origin xyz="-0.0619677535958516 3.5527136788005E-15 -1.94289029309402E-16" rpy="0 0 0" />
+      <mass value="0.301606825077316" />
+      <inertia ixx="0.000243458090535534" ixy="3.28479376945218E-18" ixz="-7.65547297868403E-19" iyy="0.000676411825972959" iyz="-1.39023672630577E-19" izz="0.000582709128938065" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HeelLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="middle_left_HipLink">
+    <inertial>
+      <origin xyz="-0.0163079071961647 0.0741080143062312 -1.06581410364015E-14" rpy="0 0 0" />
+      <mass value="0.382897249240284" />
+      <inertia ixx="0.00117906479710534" ixy="0.000284084835728015" ixz="7.29125960996502E-18" iyy="0.000554675269889953" iyz="-5.72594281359059E-18" izz="0.00117232064788202" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HipLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="middle_left_KneeLink">
+    <inertial>
+      <origin xyz="-0.0342934938820143 -0.0234797596189455 -3.5527136788005E-15" rpy="0 0 0" />
+      <mass value="0.252925405164945" />
+      <inertia ixx="0.000608070877297243" ixy="-0.000656306112936175" ixz="-2.71050543121376E-18" iyy="0.000972047912340625" iyz="-2.99510861702139E-18" izz="0.00150234212169954" />
+    </inertial>
+    <visual>
+      <origin xyz="0.035 -0.260  -0.025" rpy="0 0 1.5707963267949" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="middle_left_Endeffector">
+    <inertial>
+      <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
+      <mass value="8.67837417907314" />
+      <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+      <material name="">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+    </collision>-->
+  </link>
+  <joint name="middle_left_HeelJoint" type="revolute">
+    <origin xyz="0.0 0.118 0.0" rpy="3.1416 0 -1.5705" />
+    <parent link="BaseLink" />
+    <child link="middle_left_HeelLink" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="middle_left_HipJoint" type="revolute">
+    <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
+    <parent link="middle_left_HeelLink" />
+    <child link="middle_left_HipLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="middle_left_KneeJoint" type="revolute">
+    
+    <origin xyz="-0.116 0.09308 0" rpy="0 0 0" />
+    <parent link="middle_left_HipLink" />
+    <child link="middle_left_KneeLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+
+  <joint name="middle_left_Endeffector" type="fixed">
+    <origin xyz="-0.025 -0.26 0" rpy="-1.5707963267949 1.5707963267949 0.0" />
+    <parent link="middle_left_KneeLink" />
+    <child link="middle_left_Endeffector" />
+    <axis xyz="0 0 0" />
+  </joint>
+<link name="rear_left_HeelLink">
+    <inertial>
+      <origin xyz="-0.0619677535958516 3.5527136788005E-15 -1.94289029309402E-16" rpy="0 0 0" />
+      <mass value="0.301606825077316" />
+      <inertia ixx="0.000243458090535534" ixy="3.28479376945218E-18" ixz="-7.65547297868403E-19" iyy="0.000676411825972959" iyz="-1.39023672630577E-19" izz="0.000582709128938065" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HeelLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="rear_left_HipLink">
+    <inertial>
+      <origin xyz="-0.0163079071961647 0.0741080143062312 -1.06581410364015E-14" rpy="0 0 0" />
+      <mass value="0.382897249240284" />
+      <inertia ixx="0.00117906479710534" ixy="0.000284084835728015" ixz="7.29125960996502E-18" iyy="0.000554675269889953" iyz="-5.72594281359059E-18" izz="0.00117232064788202" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HipLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="rear_left_KneeLink">
+    <inertial>
+      <origin xyz="-0.0342934938820143 -0.0234797596189455 -3.5527136788005E-15" rpy="0 0 0" />
+      <mass value="0.252925405164945" />
+      <inertia ixx="0.000608070877297243" ixy="-0.000656306112936175" ixz="-2.71050543121376E-18" iyy="0.000972047912340625" iyz="-2.99510861702139E-18" izz="0.00150234212169954" />
+    </inertial>
+    <visual>
+      <origin xyz="0.035 -0.260  -0.025" rpy="0 0 1.5707963267949" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="rear_left_Endeffector">
+    <inertial>
+      <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
+      <mass value="8.67837417907314" />
+      <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+      <material name="">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+    </collision>-->
+  </link>
+  <joint name="rear_left_HeelJoint" type="revolute">
+    <origin xyz="-0.10219099764656375 0.05900000000000001 0.0" rpy="3.1416 0 -0.5235987755982988" />
+    <parent link="BaseLink" />
+    <child link="rear_left_HeelLink" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="rear_left_HipJoint" type="revolute">
+    <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
+    <parent link="rear_left_HeelLink" />
+    <child link="rear_left_HipLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="rear_left_KneeJoint" type="revolute">
+    
+    <origin xyz="-0.116 0.09308 0" rpy="0 0 0" />
+    <parent link="rear_left_HipLink" />
+    <child link="rear_left_KneeLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+
+  <joint name="rear_left_Endeffector" type="fixed">
+    <origin xyz="-0.025 -0.26 0" rpy="-1.5707963267949 1.5707963267949 0.0" />
+    <parent link="rear_left_KneeLink" />
+    <child link="rear_left_Endeffector" />
+    <axis xyz="0 0 0" />
+  </joint>
+<link name="front_right_HeelLink">
+    <inertial>
+      <origin xyz="-0.0619677535958516 3.5527136788005E-15 -1.94289029309402E-16" rpy="0 0 0" />
+      <mass value="0.301606825077316" />
+      <inertia ixx="0.000243458090535534" ixy="3.28479376945218E-18" ixz="-7.65547297868403E-19" iyy="0.000676411825972959" iyz="-1.39023672630577E-19" izz="0.000582709128938065" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HeelLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="front_right_HipLink">
+    <inertial>
+      <origin xyz="-0.0163079071961647 0.0741080143062312 -1.06581410364015E-14" rpy="0 0 0" />
+      <mass value="0.382897249240284" />
+      <inertia ixx="0.00117906479710534" ixy="0.000284084835728015" ixz="7.29125960996502E-18" iyy="0.000554675269889953" iyz="-5.72594281359059E-18" izz="0.00117232064788202" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HipLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="front_right_KneeLink">
+    <inertial>
+      <origin xyz="-0.0342934938820143 -0.0234797596189455 -3.5527136788005E-15" rpy="0 0 0" />
+      <mass value="0.252925405164945" />
+      <inertia ixx="0.000608070877297243" ixy="-0.000656306112936175" ixz="-2.71050543121376E-18" iyy="0.000972047912340625" iyz="-2.99510861702139E-18" izz="0.00150234212169954" />
+    </inertial>
+    <visual>
+      <origin xyz="0.035 -0.260  -0.025" rpy="0 0 1.5707963267949" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="front_right_Endeffector">
+    <inertial>
+      <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
+      <mass value="8.67837417907314" />
+      <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+      <material name="">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+    </collision>-->
+  </link>
+  <joint name="front_right_HeelJoint" type="revolute">
+    <origin xyz=" 0.10219099764656377 -0.05899999999999997 0.0" rpy="3.1416 0 2.617993877991494" />
+    <parent link="BaseLink" />
+    <child link="front_right_HeelLink" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="front_right_HipJoint" type="revolute">
+    <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
+    <parent link="front_right_HeelLink" />
+    <child link="front_right_HipLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="front_right_KneeJoint" type="revolute">
+    
+    <origin xyz="-0.116 0.09308 0" rpy="0 0 0" />
+    <parent link="front_right_HipLink" />
+    <child link="front_right_KneeLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+
+  <joint name="front_right_Endeffector" type="fixed">
+    <origin xyz="-0.025 -0.26 0" rpy="-1.5707963267949 1.5707963267949 0.0" />
+    <parent link="front_right_KneeLink" />
+    <child link="front_right_Endeffector" />
+    <axis xyz="0 0 0" />
+  </joint>
+<link name="middle_right_HeelLink">
+    <inertial>
+      <origin xyz="-0.0619677535958516 3.5527136788005E-15 -1.94289029309402E-16" rpy="0 0 0" />
+      <mass value="0.301606825077316" />
+      <inertia ixx="0.000243458090535534" ixy="3.28479376945218E-18" ixz="-7.65547297868403E-19" iyy="0.000676411825972959" iyz="-1.39023672630577E-19" izz="0.000582709128938065" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HeelLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="middle_right_HipLink">
+    <inertial>
+      <origin xyz="-0.0163079071961647 0.0741080143062312 -1.06581410364015E-14" rpy="0 0 0" />
+      <mass value="0.382897249240284" />
+      <inertia ixx="0.00117906479710534" ixy="0.000284084835728015" ixz="7.29125960996502E-18" iyy="0.000554675269889953" iyz="-5.72594281359059E-18" izz="0.00117232064788202" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HipLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="middle_right_KneeLink">
+    <inertial>
+      <origin xyz="-0.0342934938820143 -0.0234797596189455 -3.5527136788005E-15" rpy="0 0 0" />
+      <mass value="0.252925405164945" />
+      <inertia ixx="0.000608070877297243" ixy="-0.000656306112936175" ixz="-2.71050543121376E-18" iyy="0.000972047912340625" iyz="-2.99510861702139E-18" izz="0.00150234212169954" />
+    </inertial>
+    <visual>
+      <origin xyz="0.035 -0.260  -0.025" rpy="0 0 1.5707963267949" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="middle_right_Endeffector">
+    <inertial>
+      <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
+      <mass value="8.67837417907314" />
+      <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+      <material name="">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+    </collision>-->
+  </link>
+  <joint name="middle_right_HeelJoint" type="revolute">
+    <origin xyz="0.0 -0.118 0.0" rpy="3.1416 0 1.5705" />
+    <parent link="BaseLink" />
+    <child link="middle_right_HeelLink" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="middle_right_HipJoint" type="revolute">
+    <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
+    <parent link="middle_right_HeelLink" />
+    <child link="middle_right_HipLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="middle_right_KneeJoint" type="revolute">
+    
+    <origin xyz="-0.116 0.09308 0" rpy="0 0 0" />
+    <parent link="middle_right_HipLink" />
+    <child link="middle_right_KneeLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+
+  <joint name="middle_right_Endeffector" type="fixed">
+    <origin xyz="-0.025 -0.26 0" rpy="-1.5707963267949 1.5707963267949 0.0" />
+    <parent link="middle_right_KneeLink" />
+    <child link="middle_right_Endeffector" />
+    <axis xyz="0 0 0" />
+  </joint>
+<link name="rear_right_HeelLink">
+    <inertial>
+      <origin xyz="-0.0619677535958516 3.5527136788005E-15 -1.94289029309402E-16" rpy="0 0 0" />
+      <mass value="0.301606825077316" />
+      <inertia ixx="0.000243458090535534" ixy="3.28479376945218E-18" ixz="-7.65547297868403E-19" iyy="0.000676411825972959" iyz="-1.39023672630577E-19" izz="0.000582709128938065" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HeelLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="rear_right_HipLink">
+    <inertial>
+      <origin xyz="-0.0163079071961647 0.0741080143062312 -1.06581410364015E-14" rpy="0 0 0" />
+      <mass value="0.382897249240284" />
+      <inertia ixx="0.00117906479710534" ixy="0.000284084835728015" ixz="7.29125960996502E-18" iyy="0.000554675269889953" iyz="-5.72594281359059E-18" izz="0.00117232064788202" />
+    </inertial>
+    
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/HipLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="rear_right_KneeLink">
+    <inertial>
+      <origin xyz="-0.0342934938820143 -0.0234797596189455 -3.5527136788005E-15" rpy="0 0 0" />
+      <mass value="0.252925405164945" />
+      <inertia ixx="0.000608070877297243" ixy="-0.000656306112936175" ixz="-2.71050543121376E-18" iyy="0.000972047912340625" iyz="-2.99510861702139E-18" izz="0.00150234212169954" />
+    </inertial>
+    <visual>
+      <origin xyz="0.035 -0.260  -0.025" rpy="0 0 1.5707963267949" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/KneeLink.obj" />
+      </geometry>
+    </collision>-->
+  </link>
+  <link name="rear_right_Endeffector">
+    <inertial>
+      <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
+      <mass value="8.67837417907314" />
+      <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+      <material name="">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+    </collision>-->
+  </link>
+  <joint name="rear_right_HeelJoint" type="revolute">
+    <origin xyz="-0.10219099764656375 -0.059 0.0" rpy="3.1416 0 0.5235987755982988" />
+    <parent link="BaseLink" />
+    <child link="rear_right_HeelLink" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="rear_right_HipJoint" type="revolute">
+    <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
+    <parent link="rear_right_HeelLink" />
+    <child link="rear_right_HipLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+  <joint name="rear_right_KneeJoint" type="revolute">
+    
+    <origin xyz="-0.116 0.09308 0" rpy="0 0 0" />
+    <parent link="rear_right_HipLink" />
+    <child link="rear_right_KneeLink" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+  </joint>
+
+  <joint name="rear_right_Endeffector" type="fixed">
+    <origin xyz="-0.025 -0.26 0" rpy="-1.5707963267949 1.5707963267949 0.0" />
+    <parent link="rear_right_KneeLink" />
+    <child link="rear_right_Endeffector" />
+    <axis xyz="0 0 0" />
+  </joint>
+</robot>
