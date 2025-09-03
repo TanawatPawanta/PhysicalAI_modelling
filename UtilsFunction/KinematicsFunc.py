@@ -92,15 +92,9 @@ def CalcLegSpatialJacobianMatrix(is_left, plant, robot_instant_index, joint_angl
     """
     context = plant.CreateDefaultContext()
     plant.SetPositions(context, robot_instant_index[0], np.array(joint_angles))
-    if plant.num_positions() >= 12:
-        if is_left:
-            end_effector_frame = plant.GetFrameByName("L_foot_contact")
-        else:
-            end_effector_frame = plant.GetFrameByName("R_foot_contact")
-    elif plant.num_positions() == 6:
-        end_effector_frame = plant.GetFrameByName("L_foot_contact")
-    else:
-        print("CalcLegSpatialJacobianMatrix: plant's position is not 12 or 6")
+
+    end_effector_frame = plant.GetFrameByName("L_foot_contact")
+
 
     with_respect_to = JacobianWrtVariable.kQDot
     # p_BoBp_B = np.zeros(3)

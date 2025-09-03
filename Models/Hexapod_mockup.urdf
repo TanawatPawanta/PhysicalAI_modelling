@@ -1,8 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <robot name="Hexapod_mockup.SLDASM">
-  
   <link name="BaseLink">
     <inertial>
-      <origin xyz="0 -3.5527136788005E-15 0" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <mass value="3.05379730217776" />
       <inertia ixx="0.0134244037728851" ixy="1.32348898009124E-20" ixz="1.05879118406788E-19" iyy="0.0134244037728849" iyz="-8.60267837055149E-20" izz="0.0247789880905595" />
     </inertial>
@@ -15,12 +15,12 @@
         <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
-    <!--<collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+    <collision>
+      <origin xyz="-0.13719 -0.153 -0.035" rpy="0 0 0" />
       <geometry>
         <mesh filename="file:///home/tanawatp/Documents/Hexapod/PhysicalAI_modelling/Models/SingleLeg/Mesh/Mockup Body.obj" />
       </geometry>
-    </collision>-->
+    </collision>
   </link>
   <link name="base_x_axis">
       <visual>
@@ -38,7 +38,7 @@
     <parent link="BaseLink" />
     <child link="base_x_axis" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <link name="base_z_axis">
       <visual>
@@ -56,7 +56,7 @@
     <parent link="BaseLink" />
     <child link="base_z_axis" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <link name="front_left_HeelLink">
     <inertial>
@@ -109,11 +109,11 @@
     </collision>-->
   </link>
   <link name="front_left_Endeffector">
-    <inertial>
+    <!-- <inertial>
       <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
       <mass value="8.67837417907314" />
       <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -123,26 +123,26 @@
         <color rgba="1 0 0 1" />
       </material>
     </visual>
-    <!--<collision>
+    <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <sphere radius="0.005" />
       </geometry>
-    </collision>-->
+    </collision>
   </link>
   <joint name="front_left_HeelJoint" type="revolute">
     <origin xyz="0.10219099764656375 0.059 0.0" rpy="3.1416 0 -2.617993877991494" />
     <parent link="BaseLink" />
     <child link="front_left_HeelLink" />
     <axis xyz="0 0 -1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="front_left_HipJoint" type="revolute">
     <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
     <parent link="front_left_HeelLink" />
     <child link="front_left_HipLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="front_left_KneeJoint" type="revolute">
     
@@ -150,7 +150,7 @@
     <parent link="front_left_HipLink" />
     <child link="front_left_KneeLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
 
   <joint name="front_left_Endeffector" type="fixed">
@@ -210,11 +210,11 @@
     </collision>-->
   </link>
   <link name="middle_left_Endeffector">
-    <inertial>
+    <!-- <inertial>
       <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
       <mass value="8.67837417907314" />
       <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -224,26 +224,26 @@
         <color rgba="1 0 0 1" />
       </material>
     </visual>
-    <!--<collision>
+    <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <sphere radius="0.005" />
       </geometry>
-    </collision>-->
+    </collision>
   </link>
   <joint name="middle_left_HeelJoint" type="revolute">
     <origin xyz="0.0 0.118 0.0" rpy="3.1416 0 -1.5705" />
     <parent link="BaseLink" />
     <child link="middle_left_HeelLink" />
     <axis xyz="0 0 -1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="middle_left_HipJoint" type="revolute">
     <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
     <parent link="middle_left_HeelLink" />
     <child link="middle_left_HipLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="middle_left_KneeJoint" type="revolute">
     
@@ -251,7 +251,7 @@
     <parent link="middle_left_HipLink" />
     <child link="middle_left_KneeLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
 
   <joint name="middle_left_Endeffector" type="fixed">
@@ -311,11 +311,11 @@
     </collision>-->
   </link>
   <link name="rear_left_Endeffector">
-    <inertial>
+    <!-- <inertial>
       <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
       <mass value="8.67837417907314" />
       <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -325,26 +325,26 @@
         <color rgba="1 0 0 1" />
       </material>
     </visual>
-    <!--<collision>
+    <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <sphere radius="0.005" />
       </geometry>
-    </collision>-->
+    </collision>
   </link>
   <joint name="rear_left_HeelJoint" type="revolute">
     <origin xyz="-0.10219099764656375 0.05900000000000001 0.0" rpy="3.1416 0 -0.5235987755982988" />
     <parent link="BaseLink" />
     <child link="rear_left_HeelLink" />
     <axis xyz="0 0 -1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="rear_left_HipJoint" type="revolute">
     <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
     <parent link="rear_left_HeelLink" />
     <child link="rear_left_HipLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="rear_left_KneeJoint" type="revolute">
     
@@ -352,7 +352,7 @@
     <parent link="rear_left_HipLink" />
     <child link="rear_left_KneeLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
 
   <joint name="rear_left_Endeffector" type="fixed">
@@ -412,11 +412,11 @@
     </collision>-->
   </link>
   <link name="front_right_Endeffector">
-    <inertial>
+    <!-- <inertial>
       <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
       <mass value="8.67837417907314" />
       <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -426,26 +426,26 @@
         <color rgba="1 0 0 1" />
       </material>
     </visual>
-    <!--<collision>
+    <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <sphere radius="0.005" />
       </geometry>
-    </collision>-->
+    </collision>
   </link>
   <joint name="front_right_HeelJoint" type="revolute">
     <origin xyz=" 0.10219099764656377 -0.05899999999999997 0.0" rpy="3.1416 0 2.617993877991494" />
     <parent link="BaseLink" />
     <child link="front_right_HeelLink" />
     <axis xyz="0 0 -1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="front_right_HipJoint" type="revolute">
     <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
     <parent link="front_right_HeelLink" />
     <child link="front_right_HipLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="front_right_KneeJoint" type="revolute">
     
@@ -453,7 +453,7 @@
     <parent link="front_right_HipLink" />
     <child link="front_right_KneeLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
 
   <joint name="front_right_Endeffector" type="fixed">
@@ -513,11 +513,11 @@
     </collision>-->
   </link>
   <link name="middle_right_Endeffector">
-    <inertial>
+    <!-- <inertial>
       <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
       <mass value="8.67837417907314" />
       <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -527,26 +527,26 @@
         <color rgba="1 0 0 1" />
       </material>
     </visual>
-    <!--<collision>
+    <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <sphere radius="0.005" />
       </geometry>
-    </collision>-->
+    </collision>
   </link>
   <joint name="middle_right_HeelJoint" type="revolute">
     <origin xyz="0.0 -0.118 0.0" rpy="3.1416 0 1.5705" />
     <parent link="BaseLink" />
     <child link="middle_right_HeelLink" />
     <axis xyz="0 0 -1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="middle_right_HipJoint" type="revolute">
     <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
     <parent link="middle_right_HeelLink" />
     <child link="middle_right_HipLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="middle_right_KneeJoint" type="revolute">
     
@@ -554,7 +554,7 @@
     <parent link="middle_right_HipLink" />
     <child link="middle_right_KneeLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
 
   <joint name="middle_right_Endeffector" type="fixed">
@@ -614,11 +614,11 @@
     </collision>-->
   </link>
   <link name="rear_right_Endeffector">
-    <inertial>
+    <!-- <inertial>
       <origin xyz="0.348911870820384 0.00401360865794587 0.183649622985126" rpy="0 0 0" />
       <mass value="8.67837417907314" />
       <inertia ixx="0.228113976678788" ixy="-0.00290159249994303" ixz="0.00411759439646013" iyy="0.227232841215942" iyz="-0.000300928473787722" izz="0.415645974012726" />
-    </inertial>
+    </inertial> -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -628,26 +628,26 @@
         <color rgba="1 0 0 1" />
       </material>
     </visual>
-    <!--<collision>
+    <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <sphere radius="0.005" />
       </geometry>
-    </collision>-->
+    </collision>
   </link>
   <joint name="rear_right_HeelJoint" type="revolute">
     <origin xyz="-0.10219099764656375 -0.059 0.0" rpy="3.1416 0 0.5235987755982988" />
     <parent link="BaseLink" />
     <child link="rear_right_HeelLink" />
     <axis xyz="0 0 -1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="rear_right_HipJoint" type="revolute">
     <origin xyz="-0.09 0 0" rpy="-1.5708 0 0" />
     <parent link="rear_right_HeelLink" />
     <child link="rear_right_HipLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
   <joint name="rear_right_KneeJoint" type="revolute">
     
@@ -655,7 +655,7 @@
     <parent link="rear_right_HipLink" />
     <child link="rear_right_KneeLink" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.14" upper="3.14" effort="0" velocity="0" />
+    <limit lower="-3.14" upper="3.14" effort="5" velocity="0" />
   </joint>
 
   <joint name="rear_right_Endeffector" type="fixed">
@@ -664,4 +664,126 @@
     <child link="rear_right_Endeffector" />
     <axis xyz="0 0 0" />
   </joint>
+
+<transmission name="trans_front_left_HeelJoint" type="SimpleTransmission">
+  <actuator name="front_left_HeelJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="front_left_HeelJoint"/>
+</transmission>
+<transmission name="trans_front_left_HipJoint" type="SimpleTransmission">
+  <actuator name="front_left_HipJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="front_left_HipJoint"/>
+</transmission>
+<transmission name="trans_front_left_KneeJoint" type="SimpleTransmission">
+  <actuator name="front_left_KneeJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="front_left_KneeJoint"/>
+</transmission>
+
+
+<transmission name="trans_middle_left_HeelJoint" type="SimpleTransmission">
+  <actuator name="middle_left_HeelJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="middle_left_HeelJoint"/>
+</transmission>
+<transmission name="trans_middle_left_HipJoint" type="SimpleTransmission">
+  <actuator name="middle_left_HipJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="middle_left_HipJoint"/>
+</transmission>
+<transmission name="trans_middle_left_KneeJoint" type="SimpleTransmission">
+  <actuator name="middle_left_KneeJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="middle_left_KneeJoint"/>
+</transmission>
+
+
+<transmission name="trans_rear_left_HeelJoint" type="SimpleTransmission">
+  <actuator name="rear_left_HeelJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="rear_left_HeelJoint"/>
+</transmission>
+<transmission name="trans_rear_left_HipJoint" type="SimpleTransmission">
+  <actuator name="rear_left_HipJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="rear_left_HipJoint"/>
+</transmission>
+<transmission name="trans_rear_left_KneeJoint" type="SimpleTransmission">
+  <actuator name="rear_left_KneeJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="rear_left_KneeJoint"/>
+</transmission>
+
+<transmission name="trans_front_right_HeelJoint" type="SimpleTransmission">
+  <actuator name="front_right_HeelJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="front_right_HeelJoint"/>
+</transmission>
+<transmission name="trans_front_right_HipJoint" type="SimpleTransmission">
+  <actuator name="front_right_HipJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="front_right_HipJoint"/>
+</transmission>
+<transmission name="trans_front_right_KneeJoint" type="SimpleTransmission">
+  <actuator name="front_right_KneeJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="front_right_KneeJoint"/>
+</transmission>
+
+
+<transmission name="trans_middle_right_HeelJoint" type="SimpleTransmission">
+  <actuator name="middle_right_HeelJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="middle_right_HeelJoint"/>
+</transmission>
+<transmission name="trans_middle_right_HipJoint" type="SimpleTransmission">
+  <actuator name="middle_right_HipJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="middle_right_HipJoint"/>
+</transmission>
+<transmission name="trans_middle_right_KneeJoint" type="SimpleTransmission">
+  <actuator name="middle_right_KneeJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="middle_right_KneeJoint"/>
+</transmission>
+
+
+<transmission name="trans_rear_right_HeelJoint" type="SimpleTransmission">
+  <actuator name="rear_right_HeelJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="rear_right_HeelJoint"/>
+</transmission>
+<transmission name="trans_rear_right_HipJoint" type="SimpleTransmission">
+  <actuator name="rear_right_HipJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="rear_right_HipJoint"/>
+</transmission>
+<transmission name="trans_rear_right_KneeJoint" type="SimpleTransmission">
+  <actuator name="rear_right_KneeJoint_motor">
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+  <joint name="rear_right_KneeJoint"/>
+</transmission>
+
+
+
+
 </robot>
